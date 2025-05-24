@@ -9,13 +9,14 @@
       background: #000;
       height: 100vh;
     }
-    .grid-view{
-      display: grid;
-      grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
-      gap: 1rem;
-      padding: 1rem;
-      justify-items: center;
-    }
+    .grid-view {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 1rem;
+  padding: 1rem;
+  justify-content: center;
+}
+
     .card {
       position: relative;
       max-width: 400px;
@@ -24,6 +25,44 @@
       overflow: hidden;
       box-shadow: 0 4px 15px rgba(255, 255, 255, 0.3);
       cursor: pointer;
+      transition: transform 0.4s cubic-bezier(.4,2,.6,1), box-shadow 0.4s;
+      flex: 1 1 400px;
+      min-width: 280px;
+      margin: 0;
+    }
+    .profile-name {
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    width: 100%;
+    background: rgba(0,0,0,0.6); /* for readability */
+    color: #fff;
+    font-size: 1.5rem;
+    font-weight: bold;
+    text-align: center;
+    padding: 0.5em 0;
+    letter-spacing: 1px;
+    z-index: 2;
+    opacity: 1;
+    transition: opacity 0.5s ease;
+    }
+    .card:hover .profile-name,
+    .card.active .profile-name {
+      opacity: 0;  
+      pointer-events: none;
+      transition: opacity 0.5s ease;
+    }
+
+    .card:hover img,
+    .card.active img {
+      transform: scale(1.1);
+      filter: brightness(40%) blur(3px);
+    }
+
+    .card:hover .card-content,
+    .card.active .card-content {
+      transform: translateY(0);
+      opacity: 1;
     }
 
     .card img {
@@ -89,7 +128,7 @@
     .fa-envelope { color: #FF5722; }
 
     .bottom-container {
-      font-size: 15px;
+      font-size: 20px;
       text-align: center;
       color: #333;
       padding-bottom: 10px;
