@@ -1,0 +1,27 @@
+.image-slider {
+  padding-top: 17px;
+  width: 100%;
+  overflow: hidden;
+  margin-bottom: 20px;
+}
+
+.image-track {
+  display: flex;
+  width: max-content;
+  animation: scroll-left 50s linear infinite;
+}
+
+.image-track img {
+  height: 400px; /* or adjust as needed */
+  width: auto;
+  margin-right: 10px;
+}
+
+@keyframes scroll-left {
+  0% {
+    transform: translateX(0);
+  }
+  100% {
+    transform: translateX(-50%);
+  }
+}

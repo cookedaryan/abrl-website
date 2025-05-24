@@ -1,0 +1,19 @@
+body{
+  padding-top: 45px;
+  background-color: white;
+  margin-bottom: 1000px;
+}
+
+h3,
+p{
+  font-family: Oswald ,Arial;
+  color: black;
+}
+
+
+
+.about-abrl{
+  display: flex;
+  justify-content: space-between;
+  gap: 10px;
+}

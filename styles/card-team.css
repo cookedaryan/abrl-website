@@ -1,0 +1,102 @@
+* {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+    }
+
+    body {
+      font-family: 'Oswald', sans-serif;
+      background: #000;
+      height: 100vh;
+      padding: 10px;
+    }
+    .grid-view{
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(350px, 1fr));
+      gap: 10px;
+      justify-items: center;
+    }
+    .card {
+      position: relative;
+      max-width: 400px;
+      height: 500px;
+      border-radius: 20px;
+      overflow: hidden;
+      box-shadow: 0 4px 15px rgba(255, 255, 255, 0.3);
+      cursor: pointer;
+    }
+
+    .card img {
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+      transition: 0.5s ease;
+    }
+
+    .card:hover img {
+      transform: scale(1.1);
+      filter: brightness(40%) blur(3px);
+    }
+
+    .card-content {
+      position: absolute;
+      top: 0;
+      left: 0;
+      width: 100%;
+      height: 100%;
+      background: rgba(255, 255, 255, 0.95);
+      padding: 20px;
+      display: flex;
+      flex-direction: column;
+      justify-content: space-between;
+      transform: translateY(100%);
+      opacity: 0;
+      transition: 0.5s ease;
+      overflow-y: auto;
+    }
+
+    .card:hover .card-content {
+      transform: translateY(0);
+      opacity: 1;
+    }
+
+    .student-info {
+      text-align: center;
+      line-height: 1.6;
+      font-size: 20px;
+      font-weight: bold;
+    }
+
+    .icons {
+      display: flex;
+      justify-content: center;
+      gap: 15px;
+      margin: 10px 0;
+    }
+
+    .icons i {
+      font-size: 24px;
+      transition: transform 0.3s;
+    }
+
+    .icons i:hover {
+      transform: scale(1.2);
+    }
+
+    .fa-twitter { color: #1DA1F2; }
+    .fa-linkedin { color: #0077B5; }
+    .fa-github { color: #171515; }
+    .fa-envelope { color: #FF5722; }
+
+    .bottom-container {
+      font-size: 15px;
+      text-align: center;
+      color: #333;
+      padding-bottom: 10px;
+    }
+
+    @media (max-height: 550px) {
+      .card {
+        height: 90vh;
+      }
+    }

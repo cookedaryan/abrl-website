@@ -1,0 +1,54 @@
+.header{
+  height: 70px;
+  background-color:white;
+  position: fixed;
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+  top: 0px;
+  left: 0px;
+  right: 0px;
+  z-index: 100;
+}
+.left-section{
+  padding-top: 5px;
+  padding-left: 10px;
+  height: 60px;
+  width: 60px;
+  display: flex;
+  align-items: center;
+}
+.iit-logo{
+  height: 70px;
+}
+
+
+
+
+
+.right-section{
+  height: 70px;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 15px;
+  margin-right: 10px;
+}
+.right-section a{
+  text-decoration: none;
+}
+.research-text{
+  display: flex;
+  align-items: center;
+  height: 12px;
+}
+
+.publications-html:hover p,
+.patents-html:hover p,
+.projects-html:hover p,
+.team-html:hover p,
+.research-html:hover p{
+  transition: 1s;
+  text-decoration: underline;
+  cursor: pointer;
+}
