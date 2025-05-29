@@ -1,10 +1,384 @@
 <!DOCTYPE html>
-<html>
-  <head>
-    <title>ABRL-Research</title>
-    <link rel="stylesheet" href="styles/research.css">
-  </head>
-  <body>
-    <header><p>RESEARCH</p></header>
-  </body>
-  </html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>Research Facilities</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <!-- Google Fonts for Oswald and Roboto -->
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Oswald:wght@200..700&family=Roboto:ital,wght@0,100..900;1,100..900&display=swap" rel="stylesheet">
+  <!-- Three.js CDN for galaxy background -->
+  <script src="https://cdn.jsdelivr.net/npm/three@0.152.2/build/three.min.js"></script>
+  <style>
+    html, body {
+      font-family: Oswald, Arial;
+      margin: 0;
+      padding: 0;
+     /* background: linear-gradient(135deg, #232526 0%, #000000 100%);*/
+      color: #222;
+      overflow-x: hidden;
+    }
+    #galaxy-bg {
+      position: fixed;
+      top: 0; left: 0; width: 100vw; height: 100vh;
+      z-index: -1;
+      pointer-events: none;
+    }
+    .landing-header {
+      font-family: Oswald, Arial;
+      height: 100vh;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      background: transparent;
+      color: #fff;
+      font-size: 3.5rem;
+      font-weight: bold;
+      position: relative;
+      z-index: 2;
+      transition: opacity 0.6s;
+    }
+    .landing-header.faded {
+      opacity: 0;
+      pointer-events: none;
+    }
+    .equipment-section {
+      display: flex;
+      flex-direction: row;
+      align-items: center;
+      justify-content: center;
+      min-height: 70vh;
+      gap: 60px;
+      margin: 60px 0;
+    }
+    .equipment-image, .equipment-details {
+      background: rgb(255 255 255 / 100%);
+      padding: 40px 32px;
+      border-radius: 18px;
+      box-shadow: 0 2px 24px rgba(0,0,0,0.09);
+      width: 480px;
+      min-height: 340px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      position: relative;
+      will-change: transform, opacity;
+    }
+    .equipment-image img {
+      max-width: 420px;
+      max-height: 260px;
+      border-radius: 10px;
+      transition: transform 0.3s;
+    }
+    .equipment-details h2 {
+      font-family: Oswald, Arial;
+      font-size: 2rem;
+      margin-bottom: 16px;
+    }
+    .equipment-details p {
+      font-family: Oswald, Arial;
+      font-size: 1.20rem;
+      line-height: 1.6;
+    }
+    /* Modal Overlay for Zoom */
+    .modal {
+      display: none;
+      position: fixed;
+      z-index: 9999;
+      left: 0; top: 0; right: 0; bottom: 0;
+      background: rgba(0,0,0,0.8);
+      align-items: center;
+      justify-content: center;
+    }
+    .modal.active {
+      display: flex;
+      animation: fadeIn 0.4s;
+    }
+    .modal img {
+      max-width: 96vw;
+      max-height: 85vh;
+      border-radius: 18px;
+      box-shadow: 0 4px 32px rgba(0,0,0,0.4);
+      background: #fff;
+      padding: 16px;
+    }
+    .modal-close {
+      position: absolute;
+      top: 24px;
+      right: 32px;
+      font-size: 2.5rem;
+      color: #fff;
+      background: none;
+      border: none;
+      cursor: pointer;
+      z-index: 10001;
+    }
+    @media (max-width: 1100px) {
+      .equipment-image, .equipment-details {
+        width: 90vw;
+        min-height: 220px;
+        padding: 24px 10px;
+      }
+      .equipment-image img {
+        max-width: 80vw;
+        max-height: 180px;
+      }
+    }
+    @media (max-width: 900px) {
+      .equipment-section {
+        flex-direction: column;
+        gap: 24px;
+      }
+      .equipment-image, .equipment-details {
+        width: 96vw;
+        min-height: 180px;
+        padding: 18px 4vw;
+      }
+      .equipment-image img {
+        max-width: 88vw;
+        max-height: 140px;
+      }
+    }
+    @media (max-width: 600px) {
+      .landing-header {
+        font-size: 2rem;
+        padding: 0 10px;
+      }
+      .equipment-details h2 {
+        font-size: 1.2rem;
+      }
+      .equipment-details p {
+        font-size: 1rem;
+      }
+    }
+    @keyframes fadeIn {
+      from { opacity: 0; }
+      to   { opacity: 1; }
+    }
+  </style>
+</head>
+<body>
+  <div id="galaxy-bg"></div>
+  <div class="landing-header" id="landingHeader">
+    Research Facilities
+  </div>
+
+  <div class="equipment-section" id="equip1">
+    <div class="equipment-image" data-img="assets/iit-delhi-photo.jpeg">
+      <img src="assets/iit-delhi-photo.jpeg" alt="Microscope">
+    </div>
+    <div class="equipment-details">
+      <div>
+        <h2>High-Resolution Microscope</h2>
+        <p>Used for detailed imaging at the cellular and molecular level. Enables advanced research in biology and materials science.</p>
+      </div>
+    </div>
+  </div>
+
+  <div class="equipment-section" id="equip2">
+    <div class="equipment-image" data-img="assets/iit-delhi-photo.jpeg">
+      <img src="assets/iit-delhi-photo.jpeg" alt="Spectrometer">
+    </div>
+    <div class="equipment-details">
+      <div>
+        <h2>Mass Spectrometer</h2>
+        <p>Analyzes chemical composition with high precision. Essential for analytical chemistry and biochemistry research.</p>
+      </div>
+    </div>
+  </div>
+
+  <div class="equipment-section" id="equip1">
+    <div class="equipment-image" data-img="assets/iit-delhi-photo.jpeg">
+      <img src="assets/iit-delhi-photo.jpeg" alt="Microscope">
+    </div>
+    <div class="equipment-details">
+      <div>
+        <h2>High-Resolution Microscope</h2>
+        <p>Used for detailed imaging at the cellular and molecular level. Enables advanced research in biology and materials science.</p>
+      </div>
+    </div>
+  </div>
+
+  <div class="equipment-section" id="equip2">
+    <div class="equipment-image" data-img="assets/iit-delhi-photo.jpeg">
+      <img src="assets/iit-delhi-photo.jpeg" alt="Spectrometer">
+    </div>
+    <div class="equipment-details">
+      <div>
+        <h2>Mass Spectrometer</h2>
+        <p>Analyzes chemical composition with high precision. Essential for analytical chemistry and biochemistry research.</p>
+      </div>
+    </div>
+  </div>
+
+  <div class="equipment-section" id="equip1">
+    <div class="equipment-image" data-img="assets/iit-delhi-photo.jpeg">
+      <img src="assets/iit-delhi-photo.jpeg" alt="Microscope">
+    </div>
+    <div class="equipment-details">
+      <div>
+        <h2>High-Resolution Microscope</h2>
+        <p>Used for detailed imaging at the cellular and molecular level. Enables advanced research in biology and materials science.</p>
+      </div>
+    </div>
+  </div>
+
+  <div class="equipment-section" id="equip2">
+    <div class="equipment-image" data-img="assets/iit-delhi-photo.jpeg">
+      <img src="assets/iit-delhi-photo.jpeg" alt="Spectrometer">
+    </div>
+    <div class="equipment-details">
+      <div>
+        <h2>Mass Spectrometer</h2>
+        <p>Analyzes chemical composition with high precision. Essential for analytical chemistry and biochemistry research.</p>
+      </div>
+    </div>
+  </div>
+
+  <!-- Add more .equipment-section blocks as needed -->
+
+  <!-- Modal for Image Zoom -->
+  <div class="modal" id="imgModal">
+    <button class="modal-close" id="closeModal" aria-label="Close zoomed image">&times;</button>
+    <img src="" alt="Zoomed Equipment" id="modalImg">
+  </div>
+
+  <script>
+    // Fade out landing header on scroll
+    window.addEventListener('scroll', () => {
+      const header = document.getElementById('landingHeader');
+      if (window.scrollY > 60) {
+        header.classList.add('faded');
+      } else {
+        header.classList.remove('faded');
+      }
+    });
+
+    // Progressive slide and fade in
+    function lerp(a, b, t) {
+      return a + (b - a) * t;
+    }
+
+    function animateSections() {
+      document.querySelectorAll('.equipment-section').forEach(section => {
+        const rect = section.getBoundingClientRect();
+        const sectionMid = rect.top + rect.height / 2;
+        const viewportMid = window.innerHeight / 2;
+
+        // Calculate progress: 0 when the section is just entering, 1 when centered
+        let progress = 1 - Math.abs(sectionMid - viewportMid) / (window.innerHeight / 2);
+        progress = Math.max(0, Math.min(1, progress));
+
+        // Animate image from left and text from right
+        const image = section.querySelector('.equipment-image');
+        const details = section.querySelector('.equipment-details');
+        image.style.transform = `translateX(${lerp(-120, 0, progress)}px)`;
+        image.style.opacity = progress;
+        details.style.transform = `translateX(${lerp(120, 0, progress)}px)`;
+        details.style.opacity = progress;
+      });
+    }
+
+    window.addEventListener('scroll', animateSections);
+    window.addEventListener('resize', animateSections);
+    window.addEventListener('load', animateSections);
+
+    // Image zoom modal
+    const modal = document.getElementById('imgModal');
+    const modalImg = document.getElementById('modalImg');
+    const closeModal = document.getElementById('closeModal');
+    document.querySelectorAll('.equipment-image').forEach(imgDiv => {
+      imgDiv.addEventListener('click', function() {
+        const imgUrl = this.getAttribute('data-img');
+        modalImg.src = imgUrl;
+        modal.classList.add('active');
+      });
+    });
+    closeModal.addEventListener('click', () => {
+      modal.classList.remove('active');
+      modalImg.src = '';
+    });
+    // Close modal on click outside image
+    modal.addEventListener('click', (e) => {
+      if (e.target === modal) {
+        modal.classList.remove('active');
+        modalImg.src = '';
+      }
+    });
+    // Support ESC key to close modal
+    document.addEventListener('keydown', (e) => {
+      if (e.key === "Escape") {
+        modal.classList.remove('active');
+        modalImg.src = '';
+      }
+    });
+
+    // 3D Galaxy Starfield with Lines using Three.js
+    const bgDiv = document.getElementById('galaxy-bg');
+    let renderer, scene, camera, stars, lines;
+    function initGalaxy() {
+      scene = new THREE.Scene();
+      camera = new THREE.PerspectiveCamera(75, window.innerWidth/window.innerHeight, 1, 2000);
+      camera.position.z = 600;
+
+      renderer = new THREE.WebGLRenderer({ antialias: true, alpha: true });
+      renderer.setClearColor(0x000000, 1);
+      renderer.setSize(window.innerWidth, window.innerHeight);
+      bgDiv.appendChild(renderer.domElement);
+
+      // Stars
+      const starCount = 400;
+      const positions = [];
+      for (let i = 0; i < starCount; i++) {
+        const x = (Math.random() - 0.5) * 2000;
+        const y = (Math.random() - 0.5) * 2000;
+        const z = (Math.random() - 0.5) * 2000;
+        positions.push(x, y, z);
+      }
+      const geometry = new THREE.BufferGeometry();
+      geometry.setAttribute('position', new THREE.Float32BufferAttribute(positions, 3));
+      const material = new THREE.PointsMaterial({ color: 0xffffff, size: 2 });
+      stars = new THREE.Points(geometry, material);
+      scene.add(stars);
+
+      // Lines between some stars
+      const lineMaterial = new THREE.LineBasicMaterial({ color: 0x44aaff, transparent: true, opacity: 0.22 });
+      const lineGeometry = new THREE.BufferGeometry();
+      const linePositions = [];
+      for (let i = 0; i < starCount; i += 8) {
+        const idx1 = i * 3;
+        const idx2 = ((i + 1) % starCount) * 3;
+        linePositions.push(
+          positions[idx1], positions[idx1+1], positions[idx1+2],
+          positions[idx2], positions[idx2+1], positions[idx2+2]
+        );
+      }
+      lineGeometry.setAttribute('position', new THREE.Float32BufferAttribute(linePositions, 3));
+      lines = new THREE.LineSegments(lineGeometry, lineMaterial);
+      scene.add(lines);
+
+      animateGalaxy();
+    }
+
+    function animateGalaxy() {
+      requestAnimationFrame(animateGalaxy);
+      stars.rotation.y += 0.0008;
+      lines.rotation.y += 0.0008;
+      stars.rotation.x += 0.0003;
+      lines.rotation.x += 0.0003;
+      renderer.render(scene, camera);
+    }
+
+    function onGalaxyResize() {
+      if (!renderer || !camera) return;
+      camera.aspect = window.innerWidth / window.innerHeight;
+      camera.updateProjectionMatrix();
+      renderer.setSize(window.innerWidth, window.innerHeight);
+    }
+
+    window.addEventListener('resize', onGalaxyResize);
+    window.addEventListener('DOMContentLoaded', initGalaxy);
+  </script>
+</body>
+</html>
