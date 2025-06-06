@@ -1,59 +1,100 @@
 <!DOCTYPE html>
 <html>
-  <head>
-    <meta name="viewport" content="width=device-width , initial-scale=1.0">
-    <title>
-      IITD-ABRL
-    </title>
-    <link rel="icon" type="image/png" href="assets/iit-delhi-logo.png">
-    <link rel="stylesheet" href="styles/styles.css">
-    <link rel="stylesheet" href="styles/header.css">
-    <link rel="stylesheet" href="styles/slideshow.css">
-    <link rel="preconnect" href="https://fonts.googleapis.com">
+<head>
+<meta name="viewport" content="width=device-width , initial-scale=1.0">
+<title>
+IITD-ABRL
+</title>
+<link rel="icon" type="image/png" href="assets/iit-delhi-logo.png">
+<link rel="stylesheet" href="styles/styles.css">
+<link rel="stylesheet" href="styles/header.css">
+<link rel="stylesheet" href="styles/slideshow.css">
+<link rel="preconnect" href="https://fonts.googleapis.com">
 
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link href="https://fonts.googleapis.com/css2?family=Oswald:wght@200..700&family=Roboto:ital,wght@0,100..900;1,100..900&display=swap" rel="stylesheet">
-  </head>
+</head>
 
-  <body>
-    <header class="header">
-            <div class="left-section">
-                <img src="assets/iit-delhi-logo.png" class="iit-logo">
-            </div>
-            <nav class="right-section">
-              <a href="research.html" class="research-html"><p>RESEARCH</p></a>
-              <a href="team.html" class="team-html"><p>TEAM</p></a>
-              <a href="publications.html" class="publications-html"><p>PUBLICATIONS</p></a>
-              <a href="patents.html" class="patents-html"><p>PATENTS</p></a>
-              <a href="projects.html" class="projects-html"><p>PROJECTS</p></a>
-            </nav>
-    </header>
-
-    <div class="image-slider">
-  <div class="image-track">
-    <img src="assets/iit-delhi-photo.jpeg">
-    <img src="assets/iit-delhi-photo.jpeg">
-    <img src="assets/iit-delhi-photo.jpeg">
-    <img src="assets/iit-delhi-photo.jpeg">
-    <!-- Repeating images for smooth loop -->
-    <img src="assets/iit-delhi-photo.jpeg">
-    <img src="assets/iit-delhi-photo.jpeg">
-    <img src="assets/iit-delhi-photo.jpeg">
-    <img src="assets/iit-delhi-photo.jpeg">
-  </div>
+<body>
+<header class="header">
+<div class="left-section">
+<img src="assets/iit-delhi-logo.png" class="iit-logo">
+</div>
+<div class="right-section">
+  
+  <a href="team.html" class="head nav-group"><p>THE GROUP</p></a>
+  <a href="research.html" class="head nav-research"><p>RESEARCH</p></a>
+  <a href="publications.html" class="head nav-publications"><p>PUBLICATIONS</p></a>
+  <a href="patents.html" class="head nav-patents"><p>PATENTS</p></a>
+  <a href="projects.html" class="head nav-projects"><p>PROJECTS</p></a>
+  <a href="projects.html" class="head nav-activities"><p>GROUP ACTIVITIES</p></a>
+  <a href="projects.html" class="head nav-news"><p>NEWS</p></a>
+  <a href="projects.html" class="head nav-contact"><p>CONTACT</p></a>
+  <button class="toggle"><img src="assets/icons/hamburger-menu.png" class="ham-logo"></button>
 </div>
 
-    
-    <div class="about-abrl">
-      <h3 style="text-decoration: underline;background-color: rgb(255, 125, 125);padding-right: 10px;padding-left: 10px;">About Advanced Batteries Research Laboratory</h3>
-      <p style="font-size: 17px;font-weight: 500;">
-        Advanced Batteries Research Laboratory (ABRL) is located at Department of Energy Science and Engineering , Block 5, Indian Institute of Technology Delhi (IIT Delhi) . ABRL is dedicated to create a resilient energy future while mitigating environmental pollution, which is one of the most crucial challenges facing humanity today. At ABRL, we study new materials to address crucial challenges in energy storage landscape, spanning form high energy density advanced batteries to pseudocapacitors. We also work on stimuli responsive smart materials to monitor environmental degradation.
-      </p>
-    </div>
-    
-        
 
-  </body>
+<div class="sub-menu">
+<a href="research.html" class="option"><p>RESEARCH</p></a>
+<a href="team.html" class="option"><p>THE GROUP</p></a>
+<a href="publications.html" class="option"><p>PUBLICATIONS</p></a>
+<a href="patents.html" class="option"><p>PATENTS</p></a>
+<a href="projects.html" class="option"><p>PROJECTS</p></a>
+<a href="projects.html" class="option"><p>GROUP ACTIVITIES</p></a>
+<a href="projects.html" class="option"><p>NEWS</p></a>
+<a href="projects.html" class="option"><p>CONTACT</p></a>
+</div>
+</header>
+
+<div class="image-slider">
+<div class="image-track">
+<img src="assets/iit-delhi-photo.jpeg">
+<img src="assets/iit-delhi-photo.jpeg">
+<img src="assets/iit-delhi-photo.jpeg">
+<img src="assets/iit-delhi-photo.jpeg">
+<!-- Repeating images for smooth loop -->
+<img src="assets/iit-delhi-photo.jpeg">
+<img src="assets/iit-delhi-photo.jpeg">
+<img src="assets/iit-delhi-photo.jpeg">
+<img src="assets/iit-delhi-photo.jpeg">
+</div>
+</div>
+
+
+<div class="about-abrl">
+<h3 style="text-decoration: underline;background-color: rgb(255, 125, 125);padding-right: 10px;padding-left: 10px;">About Advanced Batteries Research Laboratory</h3>
+<p style="font-size: 17px;font-weight: 500;">
+Advanced Batteries Research Laboratory (ABRL) is located at Department of Energy Science and Engineering , Block 5, Indian Institute of Technology Delhi (IIT Delhi) . ABRL is dedicated to create a resilient energy future while mitigating environmental pollution, which is one of the most crucial challenges facing humanity today. At ABRL, we study new materials to address crucial challenges in energy storage landscape, spanning form high energy density advanced batteries to pseudocapacitors. We also work on stimuli responsive smart materials to monitor environmental degradation.
+</p>
+</div>
+
+<script>
+  const subMenu = document.querySelector('.sub-menu');
+  const toggleBtn = document.querySelector('.toggle');
+
+  // Hide menu initially
+  subMenu.style.display = "none";
+
+  // Toggle menu on hamburger click
+  toggleBtn.addEventListener("click", function(e) {
+    e.stopPropagation(); // Prevent window click from firing
+    if (subMenu.style.display === "none" || subMenu.style.display === "") {
+      subMenu.style.display = "flex";
+    } else {
+      subMenu.style.display = "none";
+    }
+  });
+
+  // Hide menu when clicking outside
+  window.addEventListener("click", function(e) {
+    if (!subMenu.contains(e.target) && !toggleBtn.contains(e.target)) {
+      subMenu.style.display = "none";
+    }
+  });
+</script>
+
+
+</body>
 
 
 
