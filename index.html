@@ -19,6 +19,7 @@ IITD-ABRL
 <header class="header">
 <div class="left-section">
 <img src="assets/iit-delhi-logo.png" class="iit-logo">
+<h2 class="iit-title" style="font-family: Oswald,Arial;">ABRL@IITD</h2>
 </div>
 <div class="right-section">
   
@@ -62,11 +63,33 @@ IITD-ABRL
 
 
 <div class="about-abrl">
-<h3 style="text-decoration: underline;background-color: rgb(255, 125, 125);padding-right: 10px;padding-left: 10px;">About Advanced Batteries Research Laboratory</h3>
-<p style="font-size: 17px;font-weight: 500;">
-Advanced Batteries Research Laboratory (ABRL) is located at Department of Energy Science and Engineering , Block 5, Indian Institute of Technology Delhi (IIT Delhi) . ABRL is dedicated to create a resilient energy future while mitigating environmental pollution, which is one of the most crucial challenges facing humanity today. At ABRL, we study new materials to address crucial challenges in energy storage landscape, spanning form high energy density advanced batteries to pseudocapacitors. We also work on stimuli responsive smart materials to monitor environmental degradation.
-</p>
+  <h3 class="about-title">Advanced Batteries Research Laboratory</h3>
+  <div class="about-content">
+    <div class="about-description">
+      <p>
+        Advanced Batteries Research Laboratory (ABRL) is located at Department of Energy Science and Engineering, Block 5, Indian Institute of Technology Delhi (IIT Delhi). ABRL is dedicated to create a resilient energy future while mitigating environmental pollution, which is one of the most crucial challenges facing humanity today. At ABRL, we study new materials to address crucial challenges in energy storage landscape, spanning from high energy density advanced batteries to pseudocapacitors. We also work on stimuli responsive smart materials to monitor environmental degradation.
+      </p>
+    </div>
+    <div class="about-news">
+  <h2>NEWS</h2>
+  <div class="news-ticker">
+    <ul class="news-list" style="padding-left: 5px;">
+      <li>ABRL is now a part of the prestigious IIT Delhi's Department of Energy Science and Engineering.</li>
+      <li>We are actively seeking collaborations with industry partners to drive innovation in energy storage solutions.</li>
+      <li>Our team is expanding! We are looking for passionate researchers and students to join us in our mission.</li>
+      <li>ABRL is now a part of the prestigious IIT Delhi's Department of Energy Science and Engineering.</li>
+      <li>We are actively seeking collaborations with industry partners to drive innovation in energy storage solutions.</li>
+      <li>Our team is expanding! We are looking for passionate researchers and students to join us in our mission.</li>
+      <li>ABRL is now a part of the prestigious IIT Delhi's Department of Energy Science and Engineering.</li>
+      <li>We are actively seeking collaborations with industry partners to drive innovation in energy storage solutions.</li>
+      <li>Our team is expanding! We are looking for passionate researchers and students to join us in our mission.</li>
+      <!-- Add more items as needed -->
+    </ul>
+  </div>
 </div>
+  </div>
+</div>
+
 
 <script>
   const subMenu = document.querySelector('.sub-menu');
@@ -91,6 +114,38 @@ Advanced Batteries Research Laboratory (ABRL) is located at Department of Energy
       subMenu.style.display = "none";
     }
   });
+
+document.addEventListener('DOMContentLoaded', function() {
+  const ticker = document.querySelector('.news-ticker');
+  const list = document.querySelector('.news-list');
+  const items = Array.from(list.children);
+  const itemHeight = items[0].offsetHeight;
+  let index = 0;
+
+  // Clone items for infinite loop
+  items.forEach(item => {
+    const clone = item.cloneNode(true);
+    list.appendChild(clone);
+  });
+
+  function scrollNews() {
+    index++;
+    list.style.transition = 'transform 0.5s';
+    list.style.transform = `translateY(-${itemHeight * index}px)`;
+
+    // When reached halfway (original items), reset to start instantly
+    if (index === items.length) {
+      setTimeout(() => {
+        list.style.transition = 'none';
+        list.style.transform = 'translateY(0)';
+        index = 0;
+      }, 500); // match transition duration
+    }
+  }
+
+  setInterval(scrollNews, 3000); // scroll every 3 seconds
+});
+
 </script>
 
 

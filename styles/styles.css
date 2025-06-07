@@ -1,7 +1,6 @@
 body{
-  padding-top: 45px;
+  margin-top: 52px;
   background-color: white;
-  margin-bottom: 1000px;
 }
 
 h3,
@@ -13,7 +12,100 @@ p{
 
 
 .about-abrl{
+  font-family: Oswald ,Arial;
+  margin: 2rem 0;
+}
+
+.about-title {
+  background-color: rgb(255, 125, 125);
+  padding: 1rem 10px;
   display: flex;
-  justify-content: space-between;
-  gap: 10px;
+  justify-content: center;
+  font-size: 35px;
+  margin: 0;
+  text-decoration: underline;
+}
+
+.about-content {
+  display: flex;
+  gap: 20px;
+  flex-wrap: wrap;
+  margin-top: 1rem;
+}
+
+.about-description {
+  flex: 1;
+  min-width: 250px;
+  font-size: 17px;
+  font-weight: 500;
+  text-align: center;
+}
+
+.about-news {
+  flex: 1;
+  min-width: 250px;
+  background-color: black;
+  color: white;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  overflow: hidden;
+  position: relative;
+}
+
+.news-ticker {
+  height: 180px; /* Adjust height as needed to show 2-3 items */
+  overflow: hidden;
+  position: relative;
+}
+
+.news-list {
+  display: flex;
+  flex-direction: column;
+  gap: 0.5rem;
+  margin: 0;
+  padding: 0;
+  list-style: disc inside;
+  transition: transform 0.5s;
+}
+
+.news-list li {
+  min-height: 30px; /* Adjust for spacing */
+  padding: 0.5rem 0;
+  width: 100%;
+}
+
+.about-news h2 {
+  color: white;
+  text-decoration: underline;
+  margin-bottom: 1rem;
+}
+
+.about-news ul {
+  color: white;
+  font-size: 17px;
+  font-weight: 500;
+  list-style: disc inside;
+  padding-left: 0;
+  margin: 0;
+  display: flex;
+  flex-direction: column;
+  gap: 0.5rem;
+  align-items: flex-start;
+}
+
+/* Responsive layout: stack on small screens */
+@media (max-width: 800px) {
+  .about-content {
+    flex-direction: column;
+    gap: 10px;
+  }
+  .about-description, .about-news {
+    min-width: 0;
+    width: 100%;
+    text-align: center;
+  }
+  .about-news ul {
+    align-items: center;
+  }
 }
