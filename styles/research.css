@@ -187,3 +187,76 @@ html, body {
     font-size: 1.1rem;
   }
 }
+
+.modal-img-zoom {
+  display: none;
+  position: fixed;
+  z-index: 9999;
+  left: 0; top: 0;
+  width: 100vw; height: 100vh;
+  overflow: auto;
+  background: rgba(0,0,0,0.85); /* dark overlay */
+  align-items: center;
+  justify-content: center;
+  flex-direction: column;
+}
+
+.modal-img-zoom.show {
+  display: flex;
+}
+
+.modal-img-box {
+  background: #fff; /* white background for the image */
+  padding: 24px 24px 16px 24px;
+  border-radius: 12px;
+  box-shadow: 0 6px 32px rgba(0,0,0,0.15);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  max-width: 92vw;
+  max-height: 80vh;
+}
+
+.modal-img-content {
+  display: block;
+  max-width: 80vw;
+  max-height: 70vh;
+  border-radius: 8px;
+  background: #fff;
+  box-shadow: none;
+}
+
+.close-img-modal {
+  position: absolute;
+  top: 30px; right: 40px;
+  color: #fff;
+  font-size: 40px;
+  font-weight: bold;
+  cursor: pointer;
+  z-index: 2;
+}
+
+.img-modal-caption {
+  color: #eee;
+  text-align: center;
+  margin-top: 16px;
+  font-size: 18px;
+  max-width: 90vw;
+}
+
+@media (max-width: 700px) {
+  .modal-img-box {
+    padding: 8px 4px 8px 4px;
+    max-width: 98vw;
+    max-height: 60vh;
+  }
+  .modal-img-content {
+    max-width: 96vw;
+    max-height: 50vh;
+  }
+  .close-img-modal {
+    top: 12px; right: 16px;
+    font-size: 32px;
+  }
+}
+

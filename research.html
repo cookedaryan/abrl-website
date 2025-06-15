@@ -25,7 +25,6 @@
     <section class="research-cards-container" id="researchContainer" aria-label="Research Areas">
       <!-- Research Card 1 -->
       <article class="research-card">
-        <div class="research-number" aria-label="Research 1">RESEARCH-1</div>
         <div class="research-card-image-wrapper">
           <img loading="lazy" class="research-card-image" src="assets/research/Battery.png" alt="High Energy Rechargeable Batteries illustration">
         </div>
@@ -39,7 +38,6 @@
 
       <!-- Research Card 2 -->
       <article class="research-card">
-        <div class="research-number" aria-label="Research 2">RESEARCH-2</div>
         <div class="research-card-image-wrapper">
           <img loading="lazy" class="research-card-image" src="assets/research/dual-ion.png" alt="High Capacity Dual-Ion Batteries illustration">
         </div>
@@ -53,7 +51,6 @@
 
       <!-- Research Card 3 -->
       <article class="research-card">
-        <div class="research-number" aria-label="Research 3">RESEARCH-3</div>
         <div class="research-card-image-wrapper">
           <img loading="lazy" class="research-card-image" src="assets/research/supercapacitors.png" alt="High Energy Supercapacitors illustration">
         </div>
@@ -67,7 +64,6 @@
 
       <!-- Research Card 4 -->
       <article class="research-card">
-        <div class="research-number" aria-label="Research 4">RESEARCH-4</div>
         <div class="research-card-image-wrapper">
           <img loading="lazy" class="research-card-image" src="assets/research/thermoresponsive.png" alt="Soft Materials for Energy Applications illustration">
         </div>
@@ -79,6 +75,12 @@
         </div>
       </article>
     </section>
+          <!-- Modal for image zoom -->
+      <div id="imgModal" class="modal-img-zoom" tabindex="-1">
+        <span class="close-img-modal" aria-label="Close">&times;</span>
+        <img class="modal-img-content" id="modalZoomImg" alt="">
+        <div id="imgCaption" class="img-modal-caption"></div>
+      </div>
   </main>
 
   <script>
@@ -188,6 +190,37 @@
 
     window.addEventListener('resize', onGalaxyResize);
     window.addEventListener('DOMContentLoaded', initGalaxy);
+ 
+
+    document.addEventListener('DOMContentLoaded', function() {
+  const modal = document.getElementById('imgModal');
+  const modalImg = document.getElementById('modalZoomImg');
+  const caption = document.getElementById('imgCaption');
+  const closeBtn = document.querySelector('.close-img-modal');
+
+  // Open modal on research image click
+  document.querySelectorAll('.research-card-image').forEach(img => {
+    img.style.cursor = 'zoom-in';
+    img.addEventListener('click', function() {
+      modal.classList.add('show');
+      modalImg.src = this.src;
+      modalImg.alt = this.alt;
+      caption.textContent = this.alt || '';
+      modal.focus();
+    });
+  });
+
+  // Close modal
+  closeBtn.onclick = () => modal.classList.remove('show');
+  modal.onclick = (e) => {
+    if (e.target === modal) modal.classList.remove('show');
+  };
+  document.addEventListener('keydown', function(e) {
+    if (e.key === 'Escape') modal.classList.remove('show');
+  });
+});
+
+
   </script>
 </body>
 </html>
