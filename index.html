@@ -28,7 +28,7 @@ IITD-ABRL
     <a href="projects.html" class="head nav-projects"><p>PROJECTS</p></a>
     <a href="group-activities.html" class="head nav-activities"><p>GROUP ACTIVITIES</p></a>
     <a href="news.html" class="head nav-news"><p>NEWS</p></a>
-    <a href="contact.html" class="head nav-contact"><p>CONTACT</p></a>
+    <a href="#contact-us-section" class="head nav-contact"><p>CONTACT</p></a>
     <button class="toggle"><img src="assets/icons/hamburger-menu.png" class="ham-logo"></button>
   </div>
   <div class="sub-menu"></div>
@@ -87,12 +87,60 @@ IITD-ABRL
     </ul>
   </div>
   <div style="margin-top:1rem; margin-bottom: 1rem;">
-    <a href="contact.html" style="background:#ff7d7d; color:black; padding:7px 18px; border-radius:20px; font-weight:bold; text-decoration:none; transition:background 0.2s;">Join Us / Collaborate</a>
+    <a href="#contact-us-section" style="background:#ff7d7d; color:black; padding:7px 18px; border-radius:20px; font-weight:bold; text-decoration:none; transition:background 0.2s;">Join Us / Collaborate</a>
   </div>
-</div>
+ </div>
 
   </div>
 </div>
+
+<footer>
+ <!-- Contact Us Section -->
+<section id="contact-us-section">
+  <h2>Contact Us</h2>
+  <div class="contact-container">
+    <div class="contact-info">
+      <p><strong>Address:</strong><br>IIT Delhi, Delhi, India</p>
+      <p><strong>Phone:</strong><br>+91 11-2654-8434</p>
+      <p><strong>Email:</strong><br>
+        <a href="mailto:vkumar@ces.iitd.ac.in?Subject=Hi ABRL">vkumar@ces.iitd.ac.in</a>
+      </p>
+    </div>
+    <form id="contact-form" autocomplete="off">
+      <input type="text" name="name" placeholder="Your Name" required>
+      <input type="email" name="email" placeholder="Your Email" required>
+      <input type="text" name="subject" placeholder="Subject" required>
+      <textarea name="message" placeholder="Message" required></textarea>
+      <button type="submit">Send Message</button>
+      <p id="form-message" style="display:none; color:green; margin-top:10px;">Thank you! Your message has been sent.</p>
+    </form>
+    <div class="contact-map">
+      <!-- Google Map Embed for IIT Delhi -->
+      <iframe
+        width="100%"
+        height="240"
+        style="border:0; border-radius:8px;"
+        loading="lazy"
+        allowfullscreen
+        referrerpolicy="no-referrer-when-downgrade"
+        src="https://www.google.com/maps?q=IIT+Delhi,+Delhi,+India&output=embed">
+      </iframe>
+    </div>
+  </div>
+</section>
+
+      <script>
+          document.getElementById('contact-form').onsubmit = function(e) {
+          e.preventDefault();
+          // Replace this with Formspree/EmailJS/your backend to actually receive messages
+          document.getElementById('form-message').style.display = 'block';
+          setTimeout(function() {
+          document.getElementById('form-message').style.display = 'none';
+          document.getElementById('contact-form').reset();
+          }, 3000);
+          };
+      </script>
+</footer>
 
 <script>
 const navItems = [
@@ -103,7 +151,7 @@ const navItems = [
   { selector: '.nav-projects', label: 'PROJECTS', href: 'projects.html' },
   { selector: '.nav-activities', label: 'GROUP ACTIVITIES', href: 'group-activities.html' },
   { selector: '.nav-news', label: 'NEWS', href: 'news.html' },
-  { selector: '.nav-contact', label: 'CONTACT', href: 'contact.html' }
+  { selector: '.nav-contact', label: 'CONTACT', href: '#contact-us-section' }
 ];
 
 const toggleBtn = document.querySelector('.toggle');
