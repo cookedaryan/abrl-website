@@ -11,6 +11,11 @@
       right: 0px;
       z-index: 100;
     }
+    .header p{
+      font-family: Oswald, Arial;
+      font-weight: 500;
+      font-size: 17px;
+    }
     .left-section{
       padding-top: 5px;
       padding-left: 10px;

@@ -70,7 +70,6 @@ html, body {
   scroll-snap-align: start;
   transition: box-shadow 0.2s;
   overflow: hidden;
-  background: rgba(20, 20, 40, 0.93);
   border-radius: 12px;
   margin-bottom: 40px;
 }
