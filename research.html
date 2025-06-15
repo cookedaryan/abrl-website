@@ -2,7 +2,7 @@
 <html lang="en">
 <head>
   <meta charset="UTF-8">
-  <title>RESEARCH</title>
+  <title>Research</title>
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <meta name="theme-color" content="#000000" media="(prefers-color-scheme: dark)">
   <meta name="theme-color" content="#000000">
@@ -14,68 +14,71 @@
   <!-- Three.js for Galaxy Background -->
   <script src="https://cdn.jsdelivr.net/npm/three@0.152.2/build/three.min.js"></script>
 </head>
-
 <body>
-  <div id="galaxy-bg"></div>
+  <div id="galaxy-bg" aria-hidden="true"></div>
 
   <main>
-    <div class="landing-header" id="landingHeader">
-      RESEARCH
-    </div>
+    <header class="landing-header" id="landingHeader">
+      <h1>RESEARCH</h1>
+    </header>
 
-    <div class="research-cards-container" id="researchContainer">
-      <div class="research-number">RESEARCH-1</div>
-      <div class="research-card">
+    <section class="research-cards-container" id="researchContainer" aria-label="Research Areas">
+      <!-- Research Card 1 -->
+      <article class="research-card">
+        <div class="research-number" aria-label="Research 1">RESEARCH-1</div>
         <div class="research-card-image-wrapper">
-          <img loading="lazy" class="research-card-image" src="assets/research/Battery.png" alt="High Energy Rechargeable Batteries">
+          <img loading="lazy" class="research-card-image" src="assets/research/Battery.png" alt="High Energy Rechargeable Batteries illustration">
         </div>
         <div class="research-card-content">
-          <div class="research-card-title">HIGH ENERGY RECHARGEABLE BATTERIES</div>
-          <div class="research-card-description">
-            The aim is to explore the post-Li ion battery chemistries that can surpass the energy limits of the rechageable batteries used today. The high-energy electrode materials, for instance, sodium, magnesium, aluminium and zinc are abundant and low-cost. Through controlling the structural and chemical aspects of the electrode materials, we design novel battery materials, and develop battery prototype. An equal emphasis is given to insigh structure-property relationships through state-of-the art characterization tools.
-          </div>
+          <h2 class="research-card-title">High Energy Rechargeable Batteries</h2>
+          <p class="research-card-description">
+            We explore post-Li ion battery chemistries that can surpass the energy limits of today's rechargeable batteries. High-energy electrode materials such as sodium, magnesium, aluminium, and zinc are abundant and low-cost. By controlling the structural and chemical aspects of these materials, we design novel battery materials and develop battery prototypes. Equal emphasis is given to understanding structure-property relationships through state-of-the-art characterization tools.
+          </p>
         </div>
-      </div>
+      </article>
 
-      <div class="research-number">RESEARCH-2</div>
-      <div class="research-card">
+      <!-- Research Card 2 -->
+      <article class="research-card">
+        <div class="research-number" aria-label="Research 2">RESEARCH-2</div>
         <div class="research-card-image-wrapper">
-          <img loading="lazy" class="research-card-image" src="assets/research/dual-ion.png" alt="High Capacity Dual-Ion Batteries">
+          <img loading="lazy" class="research-card-image" src="assets/research/dual-ion.png" alt="High Capacity Dual-Ion Batteries illustration">
         </div>
         <div class="research-card-content">
-          <div class="research-card-title">HIGH CAPACITY DUAL-ION BATTERIES</div>
-          <div class="research-card-description">
-            Dual-ion batteries offer various advatages over the tradiation batteries, including high operating voltage, fast-charging behavior, relatively cheaper and enviromentally friendly. However, the sepcific capacity is significantly low, and required to be increased to at least 3-fold to realize its practical applications. In our group we focus on manipulating the surface chemistry of the electrode materials through various routes to boost the specific capacity of Dual-ion batteries without sacrifycing their core attributes.
-          </div>
+          <h2 class="research-card-title">High Capacity Dual-Ion Batteries</h2>
+          <p class="research-card-description">
+            Dual-ion batteries offer advantages over traditional batteries, including high operating voltage, fast-charging behavior, cost-effectiveness, and environmental friendliness. However, their specific capacity is significantly low and needs to be increased at least threefold for practical applications. Our group focuses on manipulating the surface chemistry of electrode materials through various routes to boost specific capacity without sacrificing core attributes.
+          </p>
         </div>
-      </div>
+      </article>
 
-      <div class="research-number">RESEARCH-3</div>
-      <div class="research-card">
+      <!-- Research Card 3 -->
+      <article class="research-card">
+        <div class="research-number" aria-label="Research 3">RESEARCH-3</div>
         <div class="research-card-image-wrapper">
-          <img loading="lazy" class="research-card-image" src="assets/research/supercapacitors.png" alt="HIGH ENERGY SUPERCAPACITORS">
+          <img loading="lazy" class="research-card-image" src="assets/research/supercapacitors.png" alt="High Energy Supercapacitors illustration">
         </div>
         <div class="research-card-content">
-          <div class="research-card-title">HIGH ENERGY SUPERCAPACITORS</div>
-          <div class="research-card-description">
-            Supercapacitors have much higher power density compared to batteries due to their inherent storage mechanism; however, they lack energy density. To enhance the energy density our group focuses on manipulating the structure of the electrode materials through solution synthesis route. While the trnasistion metal oxides are used to enhance the faradic contributions, special types of carbon scaffold are being used to ensure a high electronic conductivity.
-          </div>
+          <h2 class="research-card-title">High Energy Supercapacitors</h2>
+          <p class="research-card-description">
+            Supercapacitors have much higher power density than batteries due to their inherent storage mechanism, but lack energy density. To enhance energy density, our group manipulates the structure of electrode materials through solution synthesis routes. Transition metal oxides are used to enhance faradaic contributions, while special carbon scaffolds ensure high electronic conductivity.
+          </p>
         </div>
-      </div>
+      </article>
 
-      <div class="research-number">RESEARCH-4</div>
-      <div class="research-card">
+      <!-- Research Card 4 -->
+      <article class="research-card">
+        <div class="research-number" aria-label="Research 4">RESEARCH-4</div>
         <div class="research-card-image-wrapper">
-          <img loading="lazy" class="research-card-image" src="assets/research/thermoresponsive.png" alt="SOFT MATERIALS FOR ENERGY APPLICATIONS">
+          <img loading="lazy" class="research-card-image" src="assets/research/thermoresponsive.png" alt="Soft Materials for Energy Applications illustration">
         </div>
         <div class="research-card-content">
-          <div class="research-card-title">SOFT MATERIALS FOR ENERGY APPLICATIONS</div>
-          <div class="research-card-description">
-            Energy is the basic need for everything to survive. Similar to energy storage, energy saving through smart materials is equally important. At ABRL, we are involved in developing smart materials for energy saving applications.
-          </div>
+          <h2 class="research-card-title">Soft Materials for Energy Applications</h2>
+          <p class="research-card-description">
+            Energy is a basic need for survival. Alongside energy storage, energy saving through smart materials is equally important. At ABRL, we are involved in developing smart materials for energy-saving applications.
+          </p>
         </div>
-      </div>
-    </div>
+      </article>
+    </section>
   </main>
 
   <script>

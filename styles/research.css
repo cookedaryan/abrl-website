@@ -1,141 +1,190 @@
 html, body {
-      font-family: Oswald, Arial;
-      margin: 0;
-      padding: 0;
-      color: #222;
-      width: 100%;
-      min-height: 100vh;
-      /* Do NOT set overflow: hidden here */
-    }
+  font-family: 'Oswald', Arial, sans-serif;
+  margin: 0;
+  padding: 0;
+  color: #222;
+  width: 100%;
+  min-height: 100vh;
+  /* Removed overflow: hidden as requested */
+}
 
-    #galaxy-bg {
-      position: fixed;
-      top: 0; left: 0; width: 100vw; height: 100vh;
-      z-index: -1;
-      pointer-events: none;
-    }
+/* Galaxy Background */
+#galaxy-bg {
+  position: fixed;
+  top: 0; left: 0;
+  width: 100vw; height: 100vh;
+  z-index: -1;
+  pointer-events: none;
+  background: #0a0c1b;
+}
 
-    .landing-header {
-      font-family: Oswald, Arial;
-      height: 100vh;
-      display: flex;
-      align-items: center;
-      justify-content: center;
-      background: transparent;
-      color: #fff;
-      font-size: 3.5rem;
-      font-weight: bold;
-      position: relative;
-      z-index: 2;
-      transition: opacity 0.6s;
-    }
+/* Landing Header */
+.landing-header {
+  font-family: 'Oswald', Arial, sans-serif;
+  height: 100vh;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background: transparent;
+  color: #fff;
+  font-size: 3.5rem;
+  font-weight: bold;
+  position: relative;
+  z-index: 2;
+  transition: opacity 0.6s;
+  letter-spacing: 1.5px;
+  text-shadow: 0 4px 24px rgba(0,0,0,0.25);
+}
 
-    .landing-header.faded {
-      opacity: 0;
-      pointer-events: none;
-    }
+.landing-header.faded {
+  opacity: 0;
+  pointer-events: none;
+}
 
-    .research-cards-container {
-      display: flex;
-      flex-direction: column;
-      width: 100vw;
-      scroll-snap-type: y mandatory;
-      opacity: 0;
-      pointer-events: none;
-      background: transparent;
-      transition: opacity 0.8s;
-    }
+/* Research Cards Container */
+.research-cards-container {
+  display: flex;
+  flex-direction: column;
+  width: 100vw;
+  scroll-snap-type: y mandatory;
+  opacity: 0;
+  pointer-events: none;
+  background: transparent;
+  transition: opacity 0.8s;
+}
 
-    .research-cards-container.visible {
-      opacity: 1;
-      pointer-events: auto;
-    }
+.research-cards-container.visible {
+  opacity: 1;
+  pointer-events: auto;
+}
 
-    .research-card {
-      display: flex;
-      flex-direction: row;
-      align-items: center;
-      justify-content: center;
-      box-shadow: 0 2px 24px rgba(0,0,0,0.09);
-      width: 100vw;
-      min-height: 100vh;
-      scroll-snap-align: start;
-      transition: box-shadow 0.2s;
-      overflow: hidden;
-    }
+/* Research Card */
+.research-card {
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  justify-content: center;
+  box-shadow: 0 2px 24px rgba(0,0,0,0.09);
+  width: 100vw;
+  min-height: 100vh;
+  scroll-snap-align: start;
+  transition: box-shadow 0.2s;
+  overflow: hidden;
+  background: rgba(20, 20, 40, 0.93);
+  border-radius: 12px;
+  margin-bottom: 40px;
+}
 
-    .research-card-image {
-      width: 100%;
-      height: 100%;
-      object-fit: cover;
-      border-radius: 12px;
-      background: #e0e0e0;
-      display: block;
-    }
+.research-card-image-wrapper {
+  width: 45vw;
+  min-width: 320px;
+  max-width: 520px;
+  height: 60vh;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background: #191c2b;
+  border-radius: 12px 0 0 12px;
+  overflow: hidden;
+}
 
-    .research-card-content {
-      padding: 32px;
-      display: flex;
-      flex-direction: column;
-      justify-content: center;
-      flex: 1;
-    }
+.research-card-image {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  border-radius: 12px 0 0 12px;
+  background: #e0e0e0;
+  display: block;
+}
 
-    .research-card-title {
-      font-family: Oswald, Arial;
-      font-size: 3rem;
-      margin-bottom: 18px;
-      color: #ffffff;
-      text-decoration: underline;
-    }
+.research-card-content {
+  padding: 32px 38px;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  flex: 1;
+}
 
-    .research-card-description {
-      font-family: Roboto, Arial;
-      font-size: 1.5rem;
-      color: #ffffff;
-      line-height: 1.6;
-    }
+.research-card-title {
+  font-family: 'Oswald', Arial, sans-serif;
+  font-size: 2.5rem;
+  margin-bottom: 18px;
+  color: #c91557;
+  text-decoration: underline;
+  letter-spacing: 1px;
+}
 
-    @media (max-width: 900px) {
-      .research-card {
-        flex-direction: column;
-        align-items: stretch;
-      }
-      .research-card-image-wrapper {
-        width: 100%;
-        height: 40vh;
-        margin-right: 0;
-      }
-      .research-card-image {
-        border-radius: 0;
-      }
-      .research-card-content {
-        padding: 18px 14px;
-      }
-      .research-card-title {
-        font-size: 1.5rem;
-      }
-      .research-card-description {
-        font-size: 1.1rem;
-      }
-    }
+.research-card-description {
+  font-family: 'Roboto', Arial, sans-serif;
+  font-size: 1.3rem;
+  color: #f8f8f8;
+  line-height: 1.7;
+  margin-bottom: 0;
+}
 
-    @media (max-width: 500px) {
-      .landing-header {
-        font-size: 2rem;
-        padding: 0 10px;
-      }
-      .research-card-title {
-        font-size: 1.05rem;
-      }
-      .research-card-description {
-        font-size: 0.95rem;
-      }
-    }
+/* Research Number */
+.research-number {
+  text-align: center;
+  font-family: 'Oswald', Arial, sans-serif;
+  font-size: 3rem;
+  color: #9d88f3;
+  margin: 40px 0 10px 0;
+  letter-spacing: 2px;
+}
 
-    .research-number {
-      text-align: center;
-      font-family: Oswald, Arial;
-      font-size: 4rem;
-      color: rgb(157, 136, 243);
-    }
+/* Responsive Design */
+@media (max-width: 1200px) {
+  .research-card-content {
+    padding: 18px 16px;
+  }
+  .research-card-title {
+    font-size: 2rem;
+  }
+}
+
+@media (max-width: 900px) {
+  .research-card {
+    flex-direction: column;
+    align-items: stretch;
+    min-height: 60vh;
+    border-radius: 12px;
+  }
+  .research-card-image-wrapper {
+    width: 100%;
+    height: 40vh;
+    border-radius: 12px 12px 0 0;
+    min-width: 0;
+    max-width: 100%;
+  }
+  .research-card-image {
+    border-radius: 12px 12px 0 0;
+  }
+  .research-card-content {
+    padding: 18px 10px;
+  }
+  .research-card-title {
+    font-size: 1.3rem;
+  }
+  .research-card-description {
+    font-size: 1.05rem;
+  }
+  .research-number {
+    font-size: 2rem;
+  }
+}
+
+@media (max-width: 500px) {
+  .landing-header {
+    font-size: 1.3rem;
+    padding: 0 10px;
+  }
+  .research-card-title {
+    font-size: 1rem;
+  }
+  .research-card-description {
+    font-size: 0.9rem;
+  }
+  .research-number {
+    font-size: 1.1rem;
+  }
+}
