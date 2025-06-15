@@ -1,99 +1,131 @@
 /* --- HEADER STYLES --- */
-    .header{
-      height: 70px;
-      background-color:white;
-      position: fixed;
-      display: flex;
-      align-items: center;
-      justify-content: space-between;
-      top: 0px;
-      left: 0px;
-      right: 0px;
-      z-index: 100;
-    }
-    .header p{
-      font-family: Oswald, Arial;
-      font-weight: 500;
-      font-size: 17px;
-    }
-    .left-section{
-      padding-top: 5px;
-      padding-left: 10px;
-      height: 60px;
-      width: 60px;
-      display: flex;
-      align-items: center;
-    }
-    .iit-logo{
-      height: 70px;
-    }
-    .ham-logo{
-      height: 28px;
-      width: 28px;
-    }
-    .right-section{
-      height: 70px;
-      display: flex;
-      align-items: center;
-      justify-content: space-between;
-      gap: 15px;
-      margin-right: 10px;
-    }
-    .right-section a{
-      text-decoration: none;
-    }
-    .right-section button{
-      border-radius: 50%;
-      background: none;
-      border: none;
-      display: flex;
-      align-items: center;
-      justify-content: center;
-      cursor: pointer;
-    }
-    .head{
-      text-decoration: none;
-    }
-    .head:hover p{
-      transition: 1s;
-      text-decoration: underline;
-      cursor: pointer;
-    }
-    .sub-menu{
-      position: absolute;
-      top: 55px;
-      right: 10px;
-      width: 200px;
-      display: none; /* Hidden by default */
-      flex-direction: column;
-      align-items: center;
-      justify-content: center;
-      background-color: lightgrey;
-      border-radius: 10px;
-      box-shadow: 0px 0px 10px rgba(0, 0, 0, 0.1);
-      font-weight: 450;
-      padding: 10px 0;
-      transition: all 0.4s;
-      z-index: 200;
-    }
-    .option:hover{
-      background-color: white;
-      width: 100%;
-      text-align: center;
-    }
-    .sub-menu a{
-      text-decoration: none;
-      font-family: Oswald, Arial;
-    }
-    .toggle {
-      display: none;
-    }
-    /* --- RESPONSIVE: Hide links one by one --- */
-    @media (max-width: 1100px) { .nav-contact { display: none; } .toggle { display: flex; } }
-    @media (max-width: 1000px) { .nav-news { display: none; } }
-    @media (max-width: 900px)  { .nav-activities { display: none; } }
-    @media (max-width: 800px)  { .nav-projects { display: none; } }
-    @media (max-width: 700px)  { .nav-patents { display: none; } }
-    @media (max-width: 600px)  { .nav-publications { display: none; } }
-    @media (max-width: 500px)  { .nav-research { display: none; } }
-    @media (max-width: 400px)  { .nav-group { display: none; } }
+.header {
+  height: 70px;
+  background-color: white;
+  position: fixed;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  top: 0px;
+  left: 0px;
+  right: 0px;
+  z-index: 100;
+  box-shadow: 0 2px 12px rgba(44,62,80,0.07);
+}
+
+.header p {
+  font-family: Oswald, Arial, sans-serif;
+  font-weight: 500;
+  font-size: 17px;
+  margin: 0;
+}
+
+.left-section {
+  padding-top: 5px;
+  padding-left: 10px;
+  height: 60px;
+  display: flex;
+  align-items: center;
+  gap: 10px;
+}
+
+.iit-logo {
+  height: 60px;
+}
+
+.ham-logo {
+  height: 28px;
+  width: 28px;
+}
+
+.right-section {
+  height: 70px;
+  display: flex;
+  align-items: center;
+  gap: 15px;
+  margin-right: 10px;
+  position: relative;
+}
+
+.right-section a {
+  text-decoration: none;
+}
+
+.right-section button {
+  border-radius: 50%;
+  background: none;
+  border: none;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  cursor: pointer;
+  padding: 6px;
+  transition: background 0.2s;
+}
+.head {
+  text-decoration: none;
+}
+
+.head:hover p {
+  transition: 0.3s;
+  text-decoration: underline;
+  cursor: pointer;
+}
+
+/* --- SUBMENU (Hamburger) --- */
+.sub-menu {
+  display: none;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  position: absolute;
+  top: 60px;
+  right: 10px;
+  width: 200px;
+  background: #e97878;
+  border-radius: 10px;
+  box-shadow: 0px 0px 10px rgba(0,0,0,0.1);
+  z-index: 200;
+  padding: 10px 0;
+  transition: opacity 0.4s, transform 0.4s;
+}
+
+.option {
+  width: 100%;
+  text-align: center;
+  padding: 8px 0;
+  border-bottom: 1px solid #eee;
+  font-family: Oswald, Arial, sans-serif;
+  color: #222;
+  text-decoration: none;
+  transition: background 0.2s;
+  display: block;
+}
+
+.option:last-child {
+  border-bottom: none;
+}
+
+.option:hover {
+  background: #fff;
+}
+
+/* Hamburger menu hidden by default, shown only when needed */
+.toggle {
+  display: none;
+  background: none;
+  border: none;
+  padding: 0;
+  margin-left: 8px;
+  cursor: pointer;
+}
+
+/* --- RESPONSIVE: Hide links one by one and show hamburger only when needed --- */
+@media (max-width: 1100px) { .nav-contact { display: none; } .toggle { display: flex; } }
+@media (max-width: 1000px) { .nav-news { display: none; } }
+@media (max-width: 900px)  { .nav-activities { display: none; } }
+@media (max-width: 800px)  { .nav-projects { display: none; } }
+@media (max-width: 700px)  { .nav-patents { display: none; } }
+@media (max-width: 600px)  { .nav-publications { display: none; } }
+@media (max-width: 500px)  { .nav-research { display: none; } }
+@media (max-width: 400px)  { .nav-group { display: none; } }
