@@ -72,6 +72,7 @@
 }
 .head {
   text-decoration: none;
+  color: black;
 }
 
 .head:hover p {
