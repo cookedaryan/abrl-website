@@ -15,6 +15,7 @@
 
 .header p {
   font-family: Oswald, Arial, sans-serif;
+  color: black;
   font-weight: 500;
   font-size: 17px;
   margin: 0;
@@ -27,6 +28,13 @@
   display: flex;
   align-items: center;
   gap: 10px;
+}
+
+.nav-home {
+  display: flex;
+  align-items: center;
+  text-decoration: none;
+  color: black;
 }
 
 .iit-logo {
