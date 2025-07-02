@@ -15,15 +15,21 @@ p {
 }
 
 .about-title {
-  background-color: #203098; /* Blue background */
+  background: linear-gradient(135deg, #232526 0%, #414345 100%);
+  color: #f8fafc;
   padding: 1rem 10px;
   display: flex;
   justify-content: center;
   font-size: 35px;
   margin: 0;
   text-decoration: underline;
-  color: rgb(255, 255, 255); /* White text for contrast */
+  font-weight: 700;
+  letter-spacing: 1px;
+  border-radius: 12px;
+  box-shadow: 0 4px 18px rgba(30,40,90,0.13), 0 1.5px 6px rgba(120,154,233,0.13);
+  user-select: none;
 }
+
 
 .about-content {
   display: flex;
@@ -44,19 +50,33 @@ p {
 .about-news {
   flex: 1;
   min-width: 250px;
-  background-color: gray;
-  color: white;
+  background: linear-gradient(135deg, #232526 0%, #414345 100%);
+  color: #f8fafc;
   display: flex;
   flex-direction: column;
   align-items: center;
   overflow: hidden;
   position: relative;
+  border-radius: 18px;
+  box-shadow: 0 4px 18px rgba(30,40,90,0.13), 0 1.5px 6px rgba(120,154,233,0.13);
+  padding: 1.5rem 1rem 1rem 1rem;
+  width: 100%;
+  max-width: 100%;
+  box-sizing: border-box;
 }
 
 .news-ticker {
+  width: 100%;
+  max-width: 100%;
   height: 180px;
   overflow: hidden;
   position: relative;
+  background: rgba(120,154,233,0.13);
+  border-radius: 12px;
+  box-shadow: 0 2px 8px rgba(120,154,233,0.10);
+  margin-bottom: 1rem;
+  padding: 0.5rem 0.5rem 0.5rem 1rem;
+  box-sizing: border-box;
 }
 
 .news-list {
@@ -67,22 +87,42 @@ p {
   padding: 0;
   list-style: disc inside;
   transition: transform 0.5s;
+  width: 100%;
+  max-width: 100%;
+  box-sizing: border-box;
 }
 
 .news-list li {
   min-height: 30px;
   padding: 0.5rem 0;
   width: 100%;
+  color: #e3eafc;
+  font-size: 1.05rem;
+  border-left: 3px solid #789ae9;
+  padding-left: 0.7rem;
+  background: rgba(255,255,255,0.04);
+  border-radius: 6px;
+  transition: background 0.2s;
+  box-sizing: border-box;
+  overflow-wrap: break-word;
+  word-break: break-word;
+}
+
+.news-list li:hover {
+  background: rgba(120,154,233,0.18);
+  color: #fff;
 }
 
 .about-news h2 {
-  color: #ffffff; /* White for better contrast */
+  color: #789ae9;
   text-decoration: underline;
   margin-bottom: 1rem;
+  font-weight: 700;
+  letter-spacing: 1px;
 }
 
 .about-news ul {
-  color: white; /* White text for news items */
+  color: #e3eafc;
   font-size: 17px;
   font-weight: 500;
   list-style: disc inside;
@@ -92,6 +132,8 @@ p {
   flex-direction: column;
   gap: 0.5rem;
   align-items: flex-start;
+  width: 100%;
+  box-sizing: border-box;
 }
 
 @media (max-width: 800px) {

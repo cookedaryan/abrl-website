@@ -86,3 +86,52 @@ document.addEventListener('DOMContentLoaded', function() {
 
   setInterval(scrollNews, 3000); // scroll every 3 seconds
 });
+
+
+// Helper to get inner HTML of a node
+function getNodeHTML(node) {
+  return node ? node.innerHTML : '';
+}
+
+document.querySelectorAll('.card').forEach(card => {
+  card.addEventListener('click', function () {
+    // Get image src and alt
+    const img = card.querySelector('img');
+    const imgSrc = img ? img.src : '';
+    const imgAlt = img ? img.alt : '';
+
+    // Get .student-info, .icons, .bottom-container content
+    const studentInfo = card.querySelector('.student-info');
+    const icons = card.querySelector('.icons');
+    const bottomContainer = card.querySelector('.bottom-container');
+
+    // Compose modal HTML
+    let detailsHTML = '';
+    if (studentInfo) detailsHTML += `<div class="student-info">${getNodeHTML(studentInfo)}</div>`;
+    if (icons) detailsHTML += `<div class="icons">${getNodeHTML(icons)}</div>`;
+    if (bottomContainer) detailsHTML += `<div class="bottom-container">${getNodeHTML(bottomContainer)}</div>`;
+
+    // Set modal content
+    document.getElementById('modal-img').src = imgSrc;
+    document.getElementById('modal-img').alt = imgAlt;
+    document.getElementById('modal-details').innerHTML = detailsHTML;
+
+    // Show modal
+    document.getElementById('team-modal').classList.add('show');
+    document.body.style.overflow = 'hidden'; // Prevent background scroll
+  });
+});
+
+// Close modal function
+function closeModal() {
+  document.getElementById('team-modal').classList.remove('show');
+  document.body.style.overflow = '';
+}
+
+// Optional: Close on overlay click or ESC key
+document.getElementById('team-modal').addEventListener('click', function(e) {
+  if (e.target === this) closeModal();
+});
+document.addEventListener('keydown', function(e) {
+  if (e.key === "Escape") closeModal();
+});

@@ -8,14 +8,42 @@
     <link href="https://fonts.googleapis.com/css2?family=Oswald:wght@200..700&family=Roboto:ital,wght@0,100..900;1,100..900&display=swap" rel="stylesheet">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <link rel="stylesheet" href="styles/group-activities.css">
+  <link rel="stylesheet" href="styles/header.css">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Oswald:wght@200..700&family=Roboto:ital,wght@0,100..900;1,100..900&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
 </head>
 <body>
-  <header class="gallery-header">
+  <header class="header">
+                <div class="left-section">
+                    <img src="assets/iit-delhi-logo.png" class="iit-logo">
+                    <a href="index.html" class="href" style="text-decoration: none; color: black;">
+                      <h2 class="iit-title" style="font-family: Oswald,Arial;">ABRL@IITD</h2>
+                    </a>
+                    <a href="index.html" class="head nav-home" title="Home" style="color: black;">
+                      <i class="fas fa-home"></i>
+                    </a>
+                </div>
+                <div class="right-section">
+                    <a href="team.html" class="head nav-group"><p>THE GROUP</p></a>
+                    <a href="research.html" class="head nav-research"><p>RESEARCH</p></a>
+                    <a href="publications.html" class="head nav-publications"><p>PUBLICATIONS</p></a>
+                    <a href="patents.html" class="head nav-patents"><p>PATENTS</p></a>
+                    <a href="projects.html" class="head nav-projects"><p>PROJECTS</p></a>
+                    <a href="group-activities.html" class="head nav-activities"><p>GROUP ACTIVITIES</p></a>
+                    <a href="news.html" class="head nav-news"><p>NEWS</p></a>
+                    <a href="index.html#contact-us-section" class="head nav-contact"><p>CONTACT</p></a>
+                    <button class="toggle"><img src="assets/icons/hamburger-menu.png" class="ham-logo"></button>
+                </div>
+                <div class="sub-menu"></div>
+        </header>
+  <div class="gallery-header">
     <div class="gallery-header-title">Group Activities</div>
     <div class="gallery-header-subtitle">
       A glimpse into our vibrant group activities, teamwork, and memorable moments
     </div>
-  </header>
+  </div>
   <section class="gallery-section">
     <div class="gallery-flex">
       <!-- Replace src with your own images -->
@@ -76,5 +104,6 @@
       if (e.key === "Escape") closeModal();
     });
   </script>
+  <script src="script.js"></script>
 </body>
 </html>

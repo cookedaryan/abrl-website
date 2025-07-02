@@ -11,16 +11,115 @@
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link href="https://fonts.googleapis.com/css2?family=Oswald:wght@200..700&family=Roboto:ital,wght@0,100..900;1,100..900&display=swap" rel="stylesheet">
   <link rel="stylesheet" href="styles/research.css">
+  <link rel="stylesheet" href="styles/header.css">
+   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
   <!-- Three.js for Galaxy Background -->
   <script src="https://cdn.jsdelivr.net/npm/three@0.152.2/build/three.min.js"></script>
+  <style>
+    .header {
+  background-color: transparent;
+}
+
+/* Make all text and icons in the nav white */
+.header,
+.header a,
+.header a:visited,
+.header h2,
+.header p,
+.header i {
+  color: #fff !important;
+  fill: #fff !important; /* For SVG icons */
+}
+
+
+.header .fas,
+.header .fa-home {
+  color: #fff !important;
+}
+
+/* Hamburger icon (if it's an image) */
+.ham-logo {
+  filter: brightness(0) invert(1); /* Turns black PNG/SVG to white */
+}
+
+/* Optional: Remove blue highlight on click for links */
+.header a:active,
+.header a:focus {
+  color: #fff !important;
+  outline: none;
+}
+
+.sub-menu {
+  display: none;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  position: absolute;
+  top: 60px;
+  right: 10px;
+  width: 200px;
+  background: #222c3c;        /* Darker background for contrast */
+  color: #fff;                /* White text */
+  border-radius: 10px;
+  box-shadow: 0px 0px 10px rgba(0,0,0,0.2);
+  z-index: 200;
+  padding: 10px 0;
+  transition: opacity 0.4s, transform 0.4s;
+}
+
+/* Style submenu links */
+.sub-menu a {
+  color: #fff;
+  text-decoration: none;
+  padding: 10px 20px;
+  width: 100%;
+  text-align: left;
+  display: block;
+  border-radius: 5px;
+  transition: background 0.2s, color 0.2s;
+}
+
+/* Hover/focus state for submenu links */
+.sub-menu a:hover,
+.sub-menu a:focus {
+  background: #789ae9;   /* Accent color on hover */
+  color: #222c3c;        /* Dark text on accent background */
+}
+
+  </style>
 </head>
 <body>
+
+  <header class="header">
+                <div class="left-section">
+                    <img src="assets/iit-delhi-logo.png" class="iit-logo">
+                    <a href="index.html" class="href" style="text-decoration: none; color: black;">
+                      <h2 class="iit-title" style="font-family: Oswald,Arial;">ABRL@IITD</h2>
+                    </a>
+                    <a href="index.html" class="head nav-home" title="Home" style="color: black;">
+                      <i class="fas fa-home"></i>
+                    </a>
+                </div>
+                <div class="right-section">
+                    <a href="team.html" class="head nav-group"><p>THE GROUP</p></a>
+                    <a href="research.html" class="head nav-research"><p>RESEARCH</p></a>
+                    <a href="publications.html" class="head nav-publications"><p>PUBLICATIONS</p></a>
+                    <a href="patents.html" class="head nav-patents"><p>PATENTS</p></a>
+                    <a href="projects.html" class="head nav-projects"><p>PROJECTS</p></a>
+                    <a href="group-activities.html" class="head nav-activities"><p>GROUP ACTIVITIES</p></a>
+                    <a href="news.html" class="head nav-news"><p>NEWS</p></a>
+                    <a href="index.html#contact-us-section" class="head nav-contact"><p>CONTACT</p></a>
+                    <button class="toggle"><img src="assets/icons/hamburger-menu.png" class="ham-logo"></button>
+                </div>
+                <div class="sub-menu"></div>
+        </header>
+
   <div id="galaxy-bg" aria-hidden="true"></div>
 
   <main>
-    <header class="landing-header" id="landingHeader">
+    <div class="landing-header" id="landingHeader">
       <h1>RESEARCH</h1>
-    </header>
+    </div>
 
     <section class="research-cards-container" id="researchContainer" aria-label="Research Areas">
       <!-- Research Card 1 -->
@@ -222,5 +321,9 @@
 
 
   </script>
+
+  <script src="script.js"></script>
+
+
 </body>
 </html>
