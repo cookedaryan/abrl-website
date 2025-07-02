@@ -44,7 +44,7 @@ p {
 .about-news {
   flex: 1;
   min-width: 250px;
-  background-color: black;
+  background-color: gray;
   color: white;
   display: flex;
   flex-direction: column;
