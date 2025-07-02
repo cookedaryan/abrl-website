@@ -6,7 +6,7 @@ const navItems = [
   { selector: '.nav-projects', label: 'PROJECTS', href: 'projects.html' },
   { selector: '.nav-activities', label: 'GROUP ACTIVITIES', href: 'group-activities.html' },
   { selector: '.nav-news', label: 'NEWS', href: 'news.html' },
-  { selector: '.nav-contact', label: 'CONTACT', href: '#contact-us-section' }
+  { selector: '.nav-contact', label: 'CONTACT', href: 'index.html#contact-us-section' }
 ];
 
 const toggleBtn = document.querySelector('.toggle');
