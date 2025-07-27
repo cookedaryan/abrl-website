@@ -8,7 +8,7 @@
 .image-track {
   display: flex;
   width: max-content;
-  animation: scroll-left 50s linear infinite;
+  animation: scroll-left 45s linear infinite;
 }
 
 .image-track img {
