@@ -38,72 +38,176 @@
                 </div>
                 <div class="sub-menu"></div>
         </header>
-  <div class="gallery-header">
-    <div class="gallery-header-title">Group Activities</div>
-    <div class="gallery-header-subtitle">
+  <section class="gallery-header">
+    <h1 class="gallery-header-title">Group Activities</h1>
+    <p class="gallery-header-subtitle">
       A glimpse into our vibrant group activities, teamwork, and memorable moments
+    </p>
+  </section>
+
+  <section class="gallery-section">
+    <div class="gallery-flex" aria-live="polite" aria-atomic="true" aria-relevant="additions"></div>
+    <div id="pagination" role="navigation" aria-label="Gallery Pagination"></div>
+  </section>
+
+  <!-- Modal for zoomed image -->
+  <div id="modalZoom" role="dialog" aria-modal="true" aria-labelledby="modalImgAlt" tabindex="-1">
+    <div class="modal-content">
+      <button id="modalCloseBtn" aria-label="Close zoomed image">&times;</button>
+      <img id="modalImg" src="" alt="" />
     </div>
   </div>
-  <section class="gallery-section">
-    <div class="gallery-flex">
-      <!-- Replace src with your own images -->
-      <div class="gallery-item"><img class="gallery-img" src="https://images.unsplash.com/photo-1506744038136-46273834b3fb?auto=format&fit=crop&w=600&q=80" alt="Group Activity 1"></div>
-      <div class="gallery-item"><img class="gallery-img" src="https://images.unsplash.com/photo-1465101046530-73398c7f28ca?auto=format&fit=crop&w=600&q=80" alt="Group Activity 2"></div>
-      <div class="gallery-item"><img class="gallery-img" src="https://images.unsplash.com/photo-1519125323398-675f0ddb6308?auto=format&fit=crop&w=600&q=80" alt="Group Activity 3"></div>
-      <div class="gallery-item"><img class="gallery-img" src="https://images.unsplash.com/photo-1529626455594-4ff0802cfb7e?auto=format&fit=crop&w=600&q=80" alt="Group Activity 4"></div>
-      <div class="gallery-item"><img class="gallery-img" src="https://images.unsplash.com/photo-1465101178521-c1a9136a3c8b?auto=format&fit=crop&w=600&q=80" alt="Group Activity 5"></div>
-      <div class="gallery-item"><img class="gallery-img" src="https://images.unsplash.com/photo-1519985176271-adb1088fa94c?auto=format&fit=crop&w=600&q=80" alt="Group Activity 6"></div>
-      <div class="gallery-item"><img class="gallery-img" src="https://images.unsplash.com/photo-1500534314209-a25ddb2bd429?auto=format&fit=crop&w=600&q=80" alt="Group Activity 7"></div>
-      <div class="gallery-item"><img class="gallery-img" src="https://images.unsplash.com/photo-1465101046530-73398c7f28ca?auto=format&fit=crop&w=600&q=80" alt="Group Activity 8"></div>
-      <div class="gallery-item"><img class="gallery-img" src="https://images.unsplash.com/photo-1519125323398-675f0ddb6308?auto=format&fit=crop&w=600&q=80" alt="Group Activity 9"></div>
-      <div class="gallery-item"><img class="gallery-img" src="https://images.unsplash.com/photo-1506744038136-46273834b3fb?auto=format&fit=crop&w=600&q=80" alt="Group Activity 1"></div>
-      <div class="gallery-item"><img class="gallery-img" src="https://images.unsplash.com/photo-1465101046530-73398c7f28ca?auto=format&fit=crop&w=600&q=80" alt="Group Activity 2"></div>
-      <div class="gallery-item"><img class="gallery-img" src="https://images.unsplash.com/photo-1519125323398-675f0ddb6308?auto=format&fit=crop&w=600&q=80" alt="Group Activity 3"></div>
-      <div class="gallery-item"><img class="gallery-img" src="https://images.unsplash.com/photo-1529626455594-4ff0802cfb7e?auto=format&fit=crop&w=600&q=80" alt="Group Activity 4"></div>
-      <div class="gallery-item"><img class="gallery-img" src="https://images.unsplash.com/photo-1465101178521-c1a9136a3c8b?auto=format&fit=crop&w=600&q=80" alt="Group Activity 5"></div>
-      <div class="gallery-item"><img class="gallery-img" src="https://images.unsplash.com/photo-1519985176271-adb1088fa94c?auto=format&fit=crop&w=600&q=80" alt="Group Activity 6"></div>
-      <div class="gallery-item"><img class="gallery-img" src="https://images.unsplash.com/photo-1500534314209-a25ddb2bd429?auto=format&fit=crop&w=600&q=80" alt="Group Activity 7"></div>
-      <div class="gallery-item"><img class="gallery-img" src="https://images.unsplash.com/photo-1465101046530-73398c7f28ca?auto=format&fit=crop&w=600&q=80" alt="Group Activity 8"></div>
-      <div class="gallery-item"><img class="gallery-img" src="https://images.unsplash.com/photo-1519125323398-675f0ddb6308?auto=format&fit=crop&w=600&q=80" alt="Group Activity 9"></div>
-      <!-- Add more images as needed -->
-    </div>
-    <div class="gallery-modal" id="galleryModal">
-      <div class="gallery-modal-content">
-        <button class="gallery-modal-close" id="galleryModalClose" aria-label="Close">&times;</button>
-        <img class="gallery-modal-img" id="galleryModalImg" src="" alt="">
-      </div>
-    </div>
-  </section>
+  <script src="script.js"></script>
   <script>
-    const galleryItems = document.querySelectorAll('.gallery-item');
-    const modal = document.getElementById('galleryModal');
-    const modalImg = document.getElementById('galleryModalImg');
-    const modalClose = document.getElementById('galleryModalClose');
+    document.addEventListener("DOMContentLoaded", () => {
+      const galleryFlex = document.querySelector(".gallery-flex");
+      const pagination = document.getElementById("pagination");
 
-    galleryItems.forEach(item => {
-      item.addEventListener('click', function() {
-        const img = item.querySelector('.gallery-img');
-        modalImg.src = img.src;
-        modalImg.alt = img.alt;
-        modal.classList.add('active');
-        document.body.style.overflow = 'hidden'; // Prevent background scroll
+      // Image range
+      const startNum = 1; // Adjust this based on your image count
+      const endNum = 179; // Adjust this based on your image count
+      const totalImages = endNum - startNum + 1;
+
+      // 30 images per page
+      const imagesPerPage = 30;
+      const totalPages = Math.ceil(totalImages / imagesPerPage);
+      let currentPage = 1;
+
+      const modalZoom = document.getElementById("modalZoom");
+      const modalImg = document.getElementById("modalImg");
+      const modalCloseBtn = document.getElementById("modalCloseBtn");
+
+      // Render a page
+      function renderPage(page) {
+        galleryFlex.innerHTML = "";
+        const startIndex = (page - 1) * imagesPerPage;
+        const endIndex = Math.min(startIndex + imagesPerPage, totalImages);
+
+        for (let i = startIndex; i < endIndex; i++) {
+          const imageNum = startNum + i;
+
+          const div = document.createElement("div");
+          div.className = "gallery-item";
+          div.setAttribute("tabindex", "0");
+
+          const img = document.createElement("img");
+          img.className = "gallery-img";
+          img.src = `assets/group-activities/${imageNum}.jpg`;
+          img.alt = `Group Activity ${i + 1}`;
+          img.loading = "lazy";
+          img.setAttribute("role", "button");
+          img.setAttribute("aria-label", `Open Group Activity ${i + 1} image in zoom`);
+
+          img.onload = () => {
+            img.classList.add("fade-in");
+          };
+
+          div.addEventListener("click", () => openModal(img.src, img.alt));
+          div.addEventListener("keydown", (e) => {
+            if (e.key === "Enter" || e.key === " ") {
+              e.preventDefault();
+              openModal(img.src, img.alt);
+            }
+          });
+
+          div.appendChild(img);
+          galleryFlex.appendChild(div);
+        }
+      }
+
+      function renderPagination() {
+        pagination.innerHTML = "";
+
+        const prevBtn = document.createElement("button");
+        prevBtn.textContent = "Previous";
+        prevBtn.disabled = currentPage === 1;
+        prevBtn.setAttribute("aria-label", "Previous page");
+        prevBtn.onclick = () => {
+          if (currentPage > 1) {
+            currentPage--;
+            updateGallery();
+          }
+        };
+        pagination.appendChild(prevBtn);
+
+        // Show max 7 page buttons centered on current page
+        const maxButtons = 7;
+        let start = Math.max(1, currentPage - Math.floor(maxButtons / 2));
+        let end = Math.min(totalPages, start + maxButtons - 1);
+        if (end - start < maxButtons - 1) start = Math.max(1, end - maxButtons + 1);
+
+        for (let i = start; i <= end; i++) {
+          const btn = document.createElement("button");
+          btn.textContent = i;
+          if (i === currentPage) {
+            btn.classList.add("active");
+            btn.disabled = true;
+            btn.setAttribute("aria-current", "page");
+          }
+          btn.onclick = () => {
+            currentPage = i;
+            updateGallery();
+          };
+          pagination.appendChild(btn);
+        }
+
+        const nextBtn = document.createElement("button");
+        nextBtn.textContent = "Next";
+        nextBtn.disabled = currentPage === totalPages;
+        nextBtn.setAttribute("aria-label", "Next page");
+        nextBtn.onclick = () => {
+          if (currentPage < totalPages) {
+            currentPage++;
+            updateGallery();
+          }
+        };
+        pagination.appendChild(nextBtn);
+      }
+
+      function updateGallery() {
+        renderPage(currentPage);
+        renderPagination();
+        window.scrollTo({ top: 0, behavior: "smooth" });
+      }
+
+      function openModal(src, alt) {
+        modalImg.src = src;
+        modalImg.alt = alt;
+        modalZoom.classList.add("active");
+        document.body.style.overflow = "hidden"; // prevent background scroll
+        modalCloseBtn.focus();
+      }
+
+      function closeModal() {
+        modalZoom.classList.remove("active");
+        modalImg.src = "";
+        modalImg.alt = "";
+        document.body.style.overflow = "";
+      }
+
+      modalCloseBtn.addEventListener("click", closeModal);
+
+      modalZoom.addEventListener("click", (e) => {
+        // Close modal if clicked outside modal content
+        if (e.target === modalZoom) closeModal();
       });
-    });
 
-    function closeModal() {
-      modal.classList.remove('active');
-      modalImg.src = '';
-      document.body.style.overflow = '';
-    }
+      document.addEventListener("keydown", (e) => {
+        if (e.key === "Escape" && modalZoom.classList.contains("active")) {
+          closeModal();
+        }
+      });
 
-    modalClose.addEventListener('click', closeModal);
-    modal.addEventListener('click', function(e) {
-      if (e.target === modal) closeModal();
-    });
-    document.addEventListener('keydown', function(e) {
-      if (e.key === "Escape") closeModal();
+      // Initial render
+      updateGallery();
     });
   </script>
-  <script src="script.js"></script>
 </body>
 </html>
+
+
+
+<!--
+use this in the windows powershell to rename images in the folder from 1 onwards
+$i=1; Get-ChildItem -Filter *.jpg | Sort-Object Name | ForEach-Object {Rename-Item $_ ('{0}.jpg' -f $i); $i++}
+-->
