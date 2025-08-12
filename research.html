@@ -87,6 +87,42 @@
   background: #789ae9;   /* Accent color on hover */
   color: #222c3c;        /* Dark text on accent background */
 }
+/* Ensure research cards allow pseudo-elements to show outside */
+.research-card {
+  position: relative;
+  margin-bottom: 100px; /* more space so divider is clearly visible */
+  overflow: visible !important; /* prevent clipping */
+}
+
+/* Strong visible divider bar */
+.research-card:not(:last-child)::after {
+  content: "";
+  position: absolute;
+  bottom: -50px; /* place it well below the card */
+  left: 50%;
+  transform: translateX(-50%);
+  width: 80%;
+  height: 8px;
+  background: linear-gradient(90deg, #ff0066, #ffcc00);
+  border-radius: 4px;
+  z-index: 10; /* ensure it’s above background */
+}
+
+/* Optional label inside divider */
+.research-card:not(:last-child)::before {
+  position: absolute;
+  bottom: -78px; /* place beneath the divider bar */
+  left: 50%;
+  transform: translateX(-50%);
+  font-family: 'Oswald', sans-serif;
+  font-size: 0.95rem;
+  color: white;
+  background: #ff0066;
+  padding: 4px 12px;
+  border-radius: 16px;
+  z-index: 11;
+}
+
   </style>
 </head>
 <body>
