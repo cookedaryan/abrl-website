@@ -136,3 +136,48 @@ body {
     padding-left: 8px;
   }
 }
+@media screen and (min-width: 1024px) {
+      body {
+        font-size: 1.1rem;
+      }
+      .section-title {
+        font-size: 2.5rem;
+      }
+      .pub-group-title {
+        font-size: 1.8rem;
+      }
+      .publication-card {
+        padding: 1.5rem;
+        font-size: 1.1rem;
+        max-width: 900px;
+        margin: 1.2rem auto;
+      }
+      .pub-title {
+        font-size: 1.3rem;
+      }
+      .pub-authors {
+        font-size: 1.05rem;
+      }
+      .pub-meta {
+        font-size: 1rem;
+      }
+      .container {
+        max-width: 1200px;
+      }
+    }
+
+    @media screen and (min-width: 1440px) {
+      body {
+        font-size: 1.2rem;
+      }
+      .section-title {
+        font-size: 3rem;
+      }
+      .pub-title {
+        font-size: 1.5rem;
+      }
+      .publication-card {
+        padding: 2rem;
+        max-width: 1000px;
+      }
+    }
