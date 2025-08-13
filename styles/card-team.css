@@ -18,6 +18,22 @@ body {
   justify-content: center;
 }
 
+.responsive-img {
+  width: 100%;
+  max-width: 1200px; /* Image won't grow beyond 800px */
+  height: auto;
+  display: block;
+  margin: 0 auto;
+}
+
+/* Example: Make heading text responsive */
+@media (max-width: 600px) {
+  div[style*="font-size"] p {
+    font-size: 35px !important; /* Smaller font for mobile */
+  }
+}
+
+
 .card {
   position: relative;
   max-width: 400px;
