@@ -2,7 +2,7 @@ const navItems = [
   { selector: '.nav-group', label: 'THE GROUP', href: 'team.html' },
   { selector: '.nav-research', label: 'RESEARCH', href: 'research.html' },
   { selector: '.nav-publications', label: 'PUBLICATIONS', href: 'publications.html' },
-  { selector: '.nav-patents', label: 'PATENTS', href: 'patents.html' },
+  { selector: '.nav-patents', label: 'PATENTS', href: 'patents-info.html' },
   { selector: '.nav-projects', label: 'PROJECTS', href: 'projects.html' },
   { selector: '.nav-activities', label: 'GROUP ACTIVITIES', href: 'group-activities.html' },
   { selector: '.nav-news', label: 'NEWS', href: 'news.html' },
