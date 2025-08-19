@@ -121,3 +121,22 @@ body {
     font-size: 1rem;
   }
 }
+.pub-number {
+  font-family: Oswald, Arial, sans-serif;
+  font-weight: 700;
+  font-size: 1.5rem;
+  color: #1a237e;
+  background: #f1f5fc;
+  border: 2px solid #3949ab;
+  border-radius: 20px;
+  width: 2.5em;
+  height: 2em;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  user-select: none;
+  flex-shrink: 0;
+  margin-bottom: 10px;
+  /* Optional shadow */
+  box-shadow: 0 2px 6px #e3e3e3;
+}
