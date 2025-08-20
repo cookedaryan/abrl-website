@@ -32,7 +32,7 @@ body {
 
 /* Section titles (e.g., Journal Articles) */
 .pub-group-title {
-  font-size: 1.4rem;
+  font-size: 40px;
   font-family: Oswald, Arial, sans-serif;
   color: #3949ab;
   border-left: 4px solid #3949ab;
