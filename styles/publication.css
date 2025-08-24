@@ -1,142 +1,100 @@
+/* General Body Styles */
 body {
-  font-family: Oswald, Arial, sans-serif;
-  background-color: #f6f8fa;
-  margin-top: 60px;
-  padding: 0;
-  color: #000000;
+    font-family: Oswald, Arial, sans-serif;
+    background-color: #f6f8fa;
+    margin-top: 60px;
+    padding: 0;
+    color: #000000;
 }
 
-/* Top heading: large, blue, underlined, centered */
+/* Page Heading */
 .heading {
-  font-family: Oswald, Arial, sans-serif;
-  color: #1a237e;
-  text-decoration: underline;
-  padding: 25px 0 0 0;
-  text-align: center;
+    font-family: Oswald, Arial, sans-serif;
+    color: #1a237e;
+    text-decoration: underline;
+    padding: 25px 0 0 0;
+    text-align: center;
 }
 .heading h1 {
-  margin: 0;
-  font-size: 4rem;
-  letter-spacing: 2px;
+    margin: 0;
+    font-size: 4rem;
+    letter-spacing: 2px;
 }
 
-/* "Paper sheet" main area */
-.container {
-  max-width: 1000px;
-  margin: 30px auto;
-  background: #fff;
-  padding: 30px 20px 30px 20px;
-  border-radius: 12px;
-  box-shadow: 0 4px 24px rgba(44, 62, 80, 0.09);
+/* Main Content Area */
+main {
+    max-width: 900px;
+    margin: 40px auto;
+    background: #fff;
+    padding: 40px 32px 30px 32px;
+    border-radius: 12px;
+    box-shadow: 0 4px 24px rgba(44, 62, 80, 0.09);
 }
 
-/* Section titles (e.g., Journal Articles) */
-.pub-group-title {
-  font-size: 40px;
-  font-family: Oswald, Arial, sans-serif;
-  color: #3949ab;
-  border-left: 4px solid #3949ab;
-  padding-left: 12px;
-  margin-bottom: 14px;
-  margin-top: 32px;
+/* List Styles */
+ol {
+    padding-left: 45px; /* Increased padding to make space for numbers */
 }
 
-/* Main publication list styling (vertical stack, border-left) */
-.publications-list article {
-  list-style: none;
-  margin-bottom: 22px;
-  font-size: 1.12rem;
-  line-height: 1.6;
-  border-left: 3px solid #242d92;
-  padding-left: 12px;
-  background: #f9fafb;  /* Lightest grey default */
-  border-radius: 3px;
-  padding-top: 8px;
-  padding-bottom: 8px;
-  transition: background-color 0.2s, box-shadow 0.2s;
+li {
+    margin-bottom: 22px;
+    font-size: 1.12rem;
+    line-height: 1.6;
+    border-left: 3px solid #242d92;
+    padding: 10px 15px;
+    background: #f9fafb;
+    border-radius: 3px;
+    /* list-style: none; <-- THIS LINE IS REMOVED */
 }
 
-/* Alternating background to visually split entries */
-.publications-list article:nth-child(even) {
-  background: #f0f3f7;  /* Deeper soft grey-blue */
+/* == THIS RULE IS ADDED BACK == */
+/* Styles the reversed numbers */
+li::marker {
+    font-family: Oswald, Arial, sans-serif;
+    font-weight: 700;
+    font-size: 1.5rem;
+    color: #1a237e;
 }
-.publications-list article:nth-child(odd) {
-  background: #f9fafb;  /* Lighter grey */
+/* == END OF ADDITION == */
+
+/* Publication Text Styles */
+.patent-title {
+    font-weight: 600;
+    color: #1a5276;
+    display: block;
+}
+.patent-title a {
+    text-decoration: none;
+    color: inherit;
+}
+.patent-title a:hover {
+    text-decoration: underline;
 }
 
-/* Hover highlight on articles */
-.publications-list article:hover {
-  background: #e8eef5;  
-  box-shadow: 0 2px 8px rgba(44, 62, 80, 0.08);
+.patent-authors {
+    font-style: italic;
+    color: #5c7184;
+    display: block;
 }
 
-/* Publication title formatting */
-.pub-title {
-  font-weight: 600;
-  color: #1a5276;
-  margin: 0 0 4px 0;
-}
-.pub-title a {
-  text-decoration: none;
-  color: inherit;
-}
-.pub-title a:hover {
-  text-decoration: underline;
+.patent-info {
+    color: #616a6b;
+    font-size: 0.95rem;
+    display: block;
 }
 
-/* Publication authors (italic, soft blue-grey) */
-.pub-authors {
-  font-style: italic;
-  color: #5c7184;
-  margin-bottom: 3px;
-}
-
-/* Meta info (year, journal), and status (accepted/published) */
-.pub-meta,
-.pub-status {
-  color: #616a6b;
-  font-size: 0.95rem;
-}
-
-/* Year separation headings with strong style */
-.pub-year-heading {
-  font-family: Oswald, Arial, sans-serif;
-  font-size: 1.2rem;
-  font-weight: 600;
-  color: #242d92;
-  margin: 24px 0 12px 0;
-  border-bottom: 1px solid #ccc;
-  padding-bottom: 4px;
-}
-
-/* Responsive tweaks for mobile */
+/* Responsive Styles for Mobile */
 @media (max-width: 600px) {
-  main {
-    padding: 18px 5px;
-  }
-  .heading h1 {
-    font-size: 2rem;
-  }
-  .publications-list article {
-    font-size: 1rem;
-  }
-}
-.pub-number {
-  font-family: Oswald, Arial, sans-serif;
-  font-weight: 700;
-  font-size: 1.5rem;
-  color: #1a237e;
-  background: #f1f5fc;
-  border: 2px solid #3949ab;
-  border-radius: 20px;
-  width: 2.5em;
-  height: 2em;
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  user-select: none;
-  flex-shrink: 0;
-  margin-bottom: 10px;
-  /* Optional shadow */
-  box-shadow: 0 2px 6px #e3e3e3;
+    main {
+        padding: 18px 10px;
+    }
+    .heading h1 {
+        font-size: 2rem;
+    }
+    li {
+        font-size: 1rem;
+    }
+    ol {
+        padding-left: 35px;
+    }
 }
