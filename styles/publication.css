@@ -33,7 +33,7 @@ main {
 
 /* List Styles */
 ol {
-    padding-left: 45px; /* Increased padding to make space for numbers */
+    padding-left: 45px;
 }
 
 li {
@@ -44,10 +44,8 @@ li {
     padding: 10px 15px;
     background: #f9fafb;
     border-radius: 3px;
-    /* list-style: none; <-- THIS LINE IS REMOVED */
 }
 
-/* == THIS RULE IS ADDED BACK == */
 /* Styles the reversed numbers */
 li::marker {
     font-family: Oswald, Arial, sans-serif;
@@ -55,7 +53,6 @@ li::marker {
     font-size: 1.5rem;
     color: #1a237e;
 }
-/* == END OF ADDITION == */
 
 /* Publication Text Styles */
 .patent-title {
